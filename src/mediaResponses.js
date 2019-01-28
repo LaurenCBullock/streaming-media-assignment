@@ -3,8 +3,8 @@ const fs = require('fs');
 const path = require('path');
 
 const getParty = (request, response) => {
-  const file = path.resolve(__dirname, '..client/party.mp4');
-
+  const file = path.resolve(__dirname, '../client/party.mp4');
+    console.log("Path" + file);
   fs.stat(file, (err, stats) => {
     if (err) {
       if (err.code === 'ENOENT') {
@@ -43,6 +43,7 @@ const getParty = (request, response) => {
       response.end(streamErr);
     });
     return stream;
+      
   });
 };
 
